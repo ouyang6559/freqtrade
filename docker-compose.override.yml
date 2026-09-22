@@ -1,0 +1,11 @@
+---
+# 本地定制覆盖文件（docker compose 会自动与 docker-compose.yml 合并）
+# 1. 宿主机 8080 已被其他项目占用，这里把网页端口改为 8081（容器内仍是 8080）。
+# 2. 把本仓库里已汉化的 FreqUI 挂载进容器，覆盖镜像自带的英文 UI。
+# 若想恢复官方默认行为，删除本文件后 `docker compose up -d` 重建即可。
+services:
+  freqtrade:
+    ports: !override
+      - "127.0.0.1:8081:8080"
+    volumes:
+      - "./freqtrade/rpc/api_server/ui/installed:/freqtrade/freqtrade/rpc/api_server/ui/installed"
