@@ -111,6 +111,10 @@ target/
 .venv
 .idea
 .vscode
+.mimosa/
+.zcode/
+.trae/
+.tmp/
 
 .*_cache/
 
